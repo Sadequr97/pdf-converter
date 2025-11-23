@@ -80,7 +80,7 @@ convertBtn.addEventListener('click', async () => {
     formData.append('file', currentFile);
 
     try {
-        const response = await fetch('http://localhost:8000/convert', {
+        const response = await fetch('/convert', {
             method: 'POST',
             body: formData
         });
