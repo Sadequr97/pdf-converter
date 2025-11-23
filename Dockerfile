@@ -5,13 +5,8 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Install system dependencies required for OpenCV and other libraries
-RUN apt-get update && apt-get install -y \
-    libgl1-mesa-glx \
-    libglib2.0-0 \
-    libsm6 \
-    libxext6 \
-    libxrender-dev \
-    && rm -rf /var/lib/apt/lists/*
+# pdf2docx uses opencv-python-headless, so we don't need X11 libs
+# RUN apt-get update && apt-get install -y ...
 
 # Copy the requirements file into the container
 COPY requirements.txt .
